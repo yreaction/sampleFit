@@ -17,11 +17,11 @@ class RaceListViewModel: NSObject {
 		
 		return Observable.create { (observer) -> Disposable in
 			let races = [
-				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "1d 12h", userCount: Int(arc4random_uniform(99) + 1)
-					, distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/800/600") ?? nil)!),
-				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "4d 12h", userCount: 0, distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/500/600") ?? nil)!),
-				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", userCount: Int(arc4random_uniform(99) + 1), distance:0, imageUrl: (URL(string: "https://picsum.photos/700/600") ?? nil)!),
-				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", userCount: Int(arc4random_uniform(99) + 1), distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/900/600") ?? nil)!)
+				Race(user: User(profileImageURL: "", fullName: "Adriana Lima", location: "London, England"), title: "Some awesome place", time: "1d 12h", userCount: Int(arc4random_uniform(99) + 1)
+					, distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/800/600") ?? nil)!, calories: 123),
+				Race(user: User(profileImageURL: "", fullName: "Juan Pedro", location: "Murcia, Spain"), title: "Some awesome place", time: "4d 12h", userCount: 0, distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/500/600") ?? nil)!, calories: 123),
+				Race(user: User(profileImageURL: "", fullName: "Joao Ponc", location: "Lisbon, Portugal"), title: "Some awesome place", time: "13:30", userCount: Int(arc4random_uniform(99) + 1), distance:0, imageUrl: (URL(string: "https://picsum.photos/700/600") ?? nil)!, calories: 2445),
+				Race(user: User(profileImageURL: "", fullName: "Adriana Lima", location: "London, England"), title: "Some awesome place", time: "13:30", userCount: Int(arc4random_uniform(99) + 1), distance: Int(arc4random_uniform(99) + 1), imageUrl: (URL(string: "https://picsum.photos/900/600") ?? nil)!, calories: 654)
 			]
 			
 			let section = [SectionModel(model:"", items: races)]

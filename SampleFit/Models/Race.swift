@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 struct Race {
-	
 	let user: User
 	let title: String
 	let time: String
 	let userCount: Int
 	let distance: Int
 	let imageUrl: URL
+	let calories: Float
 }
 

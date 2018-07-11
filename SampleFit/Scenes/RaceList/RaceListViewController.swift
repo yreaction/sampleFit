@@ -37,5 +37,18 @@ class RaceListViewController: UIViewController {
 			})
 		
 		viewModel.getRaces().bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+		tableView.rx.setDelegate(self)
+			.disposed(by: disposeBag)
     }
+	
+	
+}
+
+extension RaceListViewController: UITableViewDelegate {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let cell = tableView.cellForRow(at: indexPath) as? RaceTableViewCell
+		guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "\(RaceMapViewController.self)") as? RaceMapViewController else { fatalError()}
+		vc.race = cell?.race
+		show(vc, sender: self)
+	}
 }

@@ -27,7 +27,6 @@ class RaceTableViewCell: UITableViewCell {
 			backgroundImageView.kf.setImage(with: newValue.imageUrl)
 			distanceLabel.text = ("\(newValue.distance) KM")
 			usersCountLabel.text = ("\(newValue.userCount)")
-			usersView.isHidden = newValue.userCount == 0
 			timeLabel.text = newValue.time
 			
 		}

@@ -10,4 +10,6 @@ import Foundation
 
 struct User {
 	let profileImageURL: String
+	let fullName: String
+	let location: String
 }
