@@ -21,7 +21,10 @@ class RaceListViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		
+		let navigationBackBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: nil)
+		let navigationSearchBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "Search"), style: .plain, target: self, action: nil)
+		self.navigationItem.leftBarButtonItem = navigationBackBtn
+		self.navigationItem.rightBarButtonItem = navigationSearchBtn
 		
 		let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Race
 			>>(configureCell: {

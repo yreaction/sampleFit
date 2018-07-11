@@ -13,7 +13,7 @@ struct Race {
 	let user: User
 	let title: String
 	let time: String
-	let peopleCount: Int
+	let userCount: Int
 	let distance: Int
 	let imageUrl: URL
 }
