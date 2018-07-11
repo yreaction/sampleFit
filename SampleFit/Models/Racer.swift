@@ -15,5 +15,6 @@ struct Race {
 	let time: String
 	let peopleCount: Int
 	let distance: Int
+	let imageUrl: URL
 }
 

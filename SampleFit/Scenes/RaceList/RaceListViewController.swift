@@ -7,16 +7,32 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 class RaceListViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 	
+	let viewModel = RaceListViewModel()
+	let disposeBag = DisposeBag()
+	let reuseIdentifier = "\(RaceTableViewCell.self)"
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		
+		let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Race
+			>>(configureCell: {
+				_, tableView, indexPath, race in
+				let cell = tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! RaceTableViewCell
+				cell.tag = indexPath.row
+				cell.race = race
+				return cell
+				
+			})
+		
+		viewModel.getRaces().bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
     }
-
-	
-
 }

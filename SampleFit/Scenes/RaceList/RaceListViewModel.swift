@@ -11,14 +11,23 @@ import RxSwift
 import RxDataSources
 import UIKit
 
-func getUsers() -> Observable<[SectionModel<String, Race>]> {
+class RaceListViewModel: NSObject {
 	
-	return Observable.create { (observer) -> Disposable in
-		let races = [Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", peopleCount: 8, distance: 32)]
-		let section = [SectionModel(model:"", items: races)]
-		observer.onNext(section)
-		observer.onCompleted()
-		return Disposables.create {}
+	func getRaces() -> Observable<[SectionModel<String, Race>]> {
+		
+		return Observable.create { (observer) -> Disposable in
+			let races = [
+				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", peopleCount: 8, distance: 32, imageUrl: (URL(string: "https://picsum.photos/800/600") ?? nil)!),
+				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", peopleCount: 8, distance: 32, imageUrl: (URL(string: "https://picsum.photos/500/600") ?? nil)!),
+				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", peopleCount: 8, distance: 32, imageUrl: (URL(string: "https://picsum.photos/700/600") ?? nil)!),
+				Race(user: User(profileImageURL: ""), title: "Some awesome place", time: "13:30", peopleCount: 8, distance: 32, imageUrl: (URL(string: "https://picsum.photos/900/600") ?? nil)!)
+				
+			]
+			let section = [SectionModel(model:"", items: races)]
+			observer.onNext(section)
+			observer.onCompleted()
+			return Disposables.create {}
+		}
+		
 	}
-	
 }

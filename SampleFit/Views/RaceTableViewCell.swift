@@ -7,18 +7,22 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RaceTableViewCell: UITableViewCell {
+
+	@IBOutlet weak var titleLabel: UILabel!
+	
+	@IBOutlet weak var backgroundImageView: UIImageView!
 	var race: Race? {
 		willSet {
-		
+			titleLabel.text = race?.title ?? "Awesome Place"
+			backgroundImageView.kf.setImage(with: newValue?.imageUrl)
+			
 		}
 	}
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
-	
-
 }
